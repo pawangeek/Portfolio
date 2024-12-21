@@ -9,7 +9,7 @@ const Contact = () => {
             <div className="position-relative">
               <div className="position-relative z-2">
                 <h3 className="text-primary-2 mb-3">Let’s connect</h3>
-                <form action="index-2.html#">
+                <form action="#">
                   <div className="row g-3">
                     <div className="col-md-6 ">
                       <input type="text" className="form-control bg-3 border border-1 rounded-3" id="name" name="name"
@@ -47,14 +47,14 @@ const Contact = () => {
             <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
               <div className="d-inline-block">
                 <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
-                  <i className="ri-phone-fill text-primary-2 fs-26"></i>
+                  <i className="ri-github-fill text-primary-2 fs-26"></i>
                 </div>
               </div>
               <div className="ps-3 h-100">
-                <span className="text-400 fs-6">Phone Number</span>
-                <h6 className="mb-0">+1-234-567-8901</h6>
+                <span className="text-400 fs-6">Github</span>
+                <h6 className="mb-0">@pawangeek</h6>
               </div>
-              <a href="tel:+1-234-567-8901" className="position-absolute top-0 start-0 w-100 h-100"></a>
+              <a href="https://github.com/pawangeek" className="position-absolute top-0 start-0 w-100 h-100"></a>
             </div>
             <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
               <div className="d-inline-block">
@@ -64,21 +64,21 @@ const Contact = () => {
               </div>
               <div className="ps-3 h-100">
                 <span className="text-400 fs-6">Email</span>
-                <h6 className="mb-0">contact@william.design</h6>
+                <h6 className="mb-0">pawanjain.432@gmail.com</h6>
               </div>
-              <a href="mailto:someone@example.com" className="position-absolute top-0 start-0 w-100 h-100"></a>
+              <a href="mailto:pawanjain.432@gmail.com" className="position-absolute top-0 start-0 w-100 h-100"></a>
             </div>
             <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
               <div className="d-inline-block">
                 <div className="icon-flip flex-nowrap icon-shape icon-xxl border border-1 rounded-3 bg-3">
-                  <i className="ri-skype-fill text-primary-2 fs-26"></i>
+                  <i className="ri-linkedin-box-fill text-primary-2 fs-26"></i>
                 </div>
               </div>
               <div className="ps-3 h-100">
-                <span className="text-400 fs-6">Skype</span>
-                <h6 className="mb-0">WilliamDesignUX</h6>
+                <span className="text-400 fs-6">Linkedin</span>
+                <h6 className="mb-0">pawanjain</h6>
               </div>
-              <a href="skype:SKYPENAME?add" className="position-absolute top-0 start-0 w-100 h-100"></a>
+              <a href="https://www.linkedin.com/in/pawan-jain" className="position-absolute top-0 start-0 w-100 h-100"></a>
             </div>
             <div className="d-flex align-items-center mb-3 position-relative d-inline-flex">
               <div className="d-inline-block">
@@ -88,7 +88,7 @@ const Contact = () => {
               </div>
               <div className="ps-3 h-100">
                 <span className="text-400 fs-6">Address</span>
-                <h6 className="mb-0">0811 Erdman Prairie, Joaville CA</h6>
+                <h6 className="mb-0">Scheme 10, Alwar RAJ</h6>
               </div>
               <a href="https://maps.google.com/maps?q=1st+avenue,New+York"
                  className="position-absolute top-0 start-0 w-100 h-100"></a>
