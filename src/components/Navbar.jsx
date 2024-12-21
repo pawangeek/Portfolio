@@ -115,14 +115,9 @@ const Navbar = () => {
 
       {/* Mobile Header */}
       <div
-        className={`mobile-header-active mobile-header-wrapper-style ${mobileMenuActive ? 'sidebar-visible' : ''}`}
+        className={`mobile-header-active mobile-header-wrapper-style pt-110 ${mobileMenuActive ? 'sidebar-visible' : ''}`}
       >
         <div className="mobile-header-wrapper-inner">
-          <div className="mobile-header-logo">
-            <a className="d-flex main-logo align-items-center d-inline-flex" href="index.html">
-              <span className="fs-4 ms-2 text-dark">Pawan Jain</span>
-            </a>
-          </div>
           <div className="mobile-header-content-area">
             <div className="mobile-menu-wrap mobile-header-border">
               <nav>

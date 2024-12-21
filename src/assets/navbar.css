@@ -117,7 +117,7 @@
     background-color: var(--tc-neutral-1000);
     -webkit-box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.09);
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.09);
-    z-index: 1006;
+    z-index: 100;
 }
 .mobile-header-wrapper-style.sidebar-visible, .mobile-header-wrapper-style.sidebar-canvas-visible {
     visibility: visible;
@@ -296,6 +296,7 @@
     display: inline-block;
     vertical-align: middle;
 }
+
 .burger-icon.burger-close > span.burger-icon-top {
     display: none;
     opacity: 0;
@@ -338,4 +339,8 @@
         top: 15px;
         right: 24px;
     }
+}
+
+.burger-icon {
+    z-index: 999999; /* Ensures it's above other elements */
 }
