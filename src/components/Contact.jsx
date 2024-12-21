@@ -32,10 +32,10 @@ const Contact = () => {
                                 placeholder="Message" aria-label="With textarea"></textarea>
                     </div>
                     <div className="col-12">
-                      <button type="submit" className="btn btn-primary-2 rounded-2">
+                      <a type="submit" className="btn btn-primary-2 rounded-2 message-send" href="mailto:pawanjain.432@gmail.com">
                         Send Message
                         <i className="ri-arrow-right-up-line"></i>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </form>

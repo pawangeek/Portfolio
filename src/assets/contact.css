@@ -1,3 +1,7 @@
 textarea.form-control {
     min-height: 204px !important;
 }
+
+.message-send:hover {
+    color: white !important;
+}

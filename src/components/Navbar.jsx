@@ -30,7 +30,7 @@ const Navbar = () => {
             <i className="ri-menu-2-line"></i>
           </button>
           <div className="container py-3 px-4">
-            <a className="navbar-brand d-flex main-logo align-items-center" href="/">
+            <a className="navbar-brand d-flex main-logo align-items-center">
               <span className="fs-4 ms-2">Pawan Jain</span>
             </a>
             <div className="d-none d-lg-flex">

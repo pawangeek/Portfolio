@@ -14,7 +14,7 @@ const Experience = () => {
         'Helped the team in creation of agent-api service using FastAPI and Python for agent management.',
         'Collaborated for creating the conversation setup for the chatbot using React and TypeScript.',
       ],
-      skills: ['Node.js', 'Python', 'React', 'TypeScript', 'Python', 'DynamoDB'],
+      skills: ['Node.js', 'Python', 'React', 'TypeScript', 'DynamoDB'],
     },
     innovaccer: {
       title: 'Software Engineer I',
