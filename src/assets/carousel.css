@@ -1,0 +1,13 @@
+/**
+ * CSS style for carouselTicker
+ **/
+
+.carouselTicker__item {
+    margin: 0 50px;
+    float: left;
+    text-align: center;
+}
+
+.carouselTicker__item img {
+    vertical-align: top;
+}

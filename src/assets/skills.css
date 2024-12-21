@@ -1,0 +1,36 @@
+.section-skills-2 .carouselTicker__item {
+    position: relative;
+    margin: 0 15px;
+    float: left;
+    text-align: center;
+}
+.section-skills-2 .carouselTicker__item .tool-tip {
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    left: -10px;
+    width: max-content;
+    padding: 2px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    border-radius: 5px;
+    background: #1f1f24;
+    transition: all 0.3s ease;
+}
+
+.section-skills-2 .carouselTicker__item:hover .tool-tip {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+.section-skills-2 .brand-logo {
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    border: 1px solid var(--tc-border-1);
+}
+.section-skills-2 .brand-logo:hover {
+    transition: all 0.3s ease;
+    background-color: #242424;
+    border: none;
+}

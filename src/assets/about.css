@@ -1,0 +1,102 @@
+@keyframes blink-caret {
+    from, to {border-color: transparent;}
+    50% {border-color: orange;}
+}
+
+@-webkit-keyframes flicker {
+    0% {color: transparent;}
+    50% {color: var(--tc-neutral-0);}
+    100% {color: transparent;}
+}
+@-moz-keyframes flicker {
+    0% {color: transparent;}
+    50% {color: var(--tc-neutral-0);}
+    100% {color: transparent;}
+}
+@-o-keyframes flicker {
+    0% {color: transparent;}
+    50% {color: var(--tc-neutral-0);}
+    100% {color: transparent;}
+}
+@keyframes flicker {
+    0% {color: transparent;}
+    50% {color: var(--tc-neutral-0);}
+    100% {color: transparent;}
+}
+
+@keyframes typing {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+.section-hero-2 .background .bg-w {
+    display: block;
+}
+.section-hero-2 .background .bg-d {
+    display: none;
+}
+.section-hero-2 .icon-decorate {
+    margin-right: 210px;
+    padding-bottom: 30px;
+}
+.section-hero-2 .carouselTicker__item {
+    margin: 0 10px;
+    float: left;
+    text-align: center;
+}
+.section-hero-2 .brand-logo {
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+    border: 1px solid var(--tc-border-1);
+}
+.section-hero-2 .brand-logo:hover {
+    transition: all 0.3s ease;
+    background-color: #242424;
+    border: none;
+}
+
+.text-linear-4 {
+    background: var(--tc-linear-4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.flicker {
+    -webkit-animation: flicker 800ms infinite;
+    -moz-animation: flicker 800ms infinite;
+    -o-animation: flicker 800ms infinite;
+    animation: flicker 800ms infinite;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: 0.15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: auto;
+    letter-spacing: 0.15em; /* Adjust as needed */
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+.text-dark {
+    color: #1f1f24 !important;
+}
+
+/* Styling for the image */
+#about .col-lg-5 img {
+    width: 100%; /* Ensure the image scales properly */
+    height: auto;
+    border-radius: 20px; /* Curved corners */
+    object-fit: cover; /* Maintain the aspect ratio */
+    border: 5px solid #ccc; /* Add a border around the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+}
+
+/* Optional: Add hover effect */
+#about .col-lg-5 img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhance the shadow on hover */
+}
+
