@@ -3,35 +3,60 @@ import { motion } from 'framer-motion';
 import '../assets/experience.css';
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState('godaddy'); // Default tab
+  const [activeTab, setActiveTab] = useState('godaddy-iii'); // Default tab
   const [clickedSkill, setClickedSkill] = useState(null); // Track clicked skill
 
   const tabContent = {
-    godaddy: {
+    'godaddy-iii': {
+      title: 'Software Engineer III',
+      details: [
+        'Migrated ASM APIs to a modern V2 architecture and implemented search backed by DocumentDB and Kinesis, improving performance and maintainability.',
+        'Collaborated in the GoKnowb platform from ground-up to a production-ready MVP, meeting goals on stability, scalability, and observability.',
+        'Onboarded 7 clients using MCPify in prod and 30+ non-prod servers, rolling out MCPify to staging for enabling clients to experiment and fail fast.',
+        'Architected and delivered Agent Discovery with AOSS vector search, KNN indexing, and comprehensive search APIs for CAAS and ANS.',
+      ],
+      skills: ['Python', 'FastAPI', 'AWS', 'Docker', 'GoLang', 'GraphQL', 'OpenSearch', 'DynamoDB'],
+    },
+    'godaddy-ii': {
       title: 'Software Engineer II',
       details: [
+        'Built the complete Python SDK (go-agent-python) enabling enterprise-grade AI agent development with 4 auth methods, 5-layer MCP security, and SDM compliance.',
         'Worked on Node.js to integrate cloudwatch alarms and metrics for various AWS stack, like DynamoDB, S3, Lambda, etc.',
         'Helped the team in creation of agent-api service using FastAPI and Python for agent management.',
         'Collaborated for creating the conversation setup for the chatbot using React and TypeScript.',
       ],
-      skills: ['Node.js', 'Python', 'React', 'TypeScript', 'DynamoDB'],
+      skills: ['Node.js', 'Python', 'React', 'TypeScript', 'DynamoDB', 'FastAPI'],
     },
     innovaccer: {
       title: 'Software Engineer I',
       details: [
-        'Engineered chatbot infrastructure that converts natural language into SQL queries by implementing FastAPI WebSockets and Asyncio.',
-        'Integrated MongoDB, Elasticsearch, Redis, Snowflake for difference purpose achieving a 56% reduction in response time.',
-        'Led a Django and Celery-based NLP application that stores PDF into structured data using Azure OCR'
+        'Engineered and deployed RESTful APIs using FastAPI (Python 3) for SARA Chatbot—an LLM-powered SaaS platform—running on Kubernetes (K8s) with Helm for scalable, secure, and multi-tenant deployments.',
+        'Designed and implemented a distributed scheduler microservice using APScheduler, Celery, and Redis, reducing background task latency from 9s to 0.3s, optimizing task execution throughput under load.',
+        'Scaled chatbot infrastructure to support 15+ enterprise clients, leveraging a hybrid architecture (FastAPI + Celery + Redis) to improve message turnaround time by 34% and ensure low-latency, bidirectional communication.',
+        'Integrated polyglot data stores—MongoDB for real-time conversations, AWS S3 for dynamic KB ingestion, Redis for session management, and Snowflake for analytics—achieving 99.9% uptime and a 56% boost in response speed.',
+        'Migrated sync pipelines to fully async, adopting aiobotocore, aioredis, httpx, aiohttp, and motor, resulting in a 56% drop in CPU usage during peak workloads and improved system throughput.',
       ],
-      skills: ['Python', 'FastAPI', 'AWS', 'Docker', 'MongoDB', 'Redis', 'Snowflake'],
+      skills: ['Python', 'FastAPI', 'Kubernetes', 'Helm', 'Celery', 'Redis', 'MongoDB', 'AWS S3', 'Snowflake', 'Docker'],
     },
     delhivery: {
       title: 'Data Science Intern',
       details: [
-        'Worked with team to increase coverage for the Estimated Time of Arrival (ETA) of shipments to 98.8%, a 6% increase,',
-        'Built a pre-junk predictor for addresses based on various recognized patterns to save computation time. Benchmarking data showed a 32% reduction in additional computational resources required to process junk addresses.',
+        'Collaborated with the BI team to increase ETA coverage for packages to 98.8% (6% improvement) and implemented real-time alerting systems for major logistics hubs to detect volume spikes and operational anomalies.',
+        'Developed a comprehensive address validity scoring model using machine learning algorithms, incorporating multiple attributes and historical delivery patterns to assess address authenticity and deliverability confidence.',
+        'Built an intelligent pre-junk address predictor leveraging pattern recognition and NLP techniques, achieving 32% reduction in computational overhead and preventing invalid shipment processing.',
+        'Designed automated monitoring dashboards for logistics operations, enabling proactive identification of delivery bottlenecks and optimizing resource allocation across distribution centers.',
       ],
-      skills: ['Python', 'Jupyter', 'Numpy', 'Pandas', 'Django'],
+      skills: ['Python', 'Machine Learning', 'NLP', 'Pandas', 'NumPy', 'Jupyter', 'BI Analytics', 'Django'],
+    },
+    fractal: {
+      title: 'Data Science Intern',
+      details: [
+        'Analyzed Fractal employee project allocation data to examine errors in Full-Time Engagement allocation across departments and organizational units, identifying critical resource misallocation patterns.',
+        'Developed predictive models to optimize resource allocation efficiency, correlating billed vs unbilled days, revenue utilization metrics, and departmental capacity planning.',
+        'Visualized complex workforce analytics using advanced data visualization techniques, enabling leadership to make data-driven decisions for intelligent project staffing.',
+        'Built automated reporting dashboards that reduced manual allocation review time by 60% and improved forecasting accuracy for project resource planning.',
+      ],
+      skills: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter', 'Data Visualization', 'Predictive Analytics'],
     },
   };
 
@@ -66,7 +91,7 @@ const Experience = () => {
                 <span className="text-linear-4 d-flex align-items-center">Experience</span>
               </div>
               <h3>
-                +3
+                +5
                 <span className="text-300"> years of </span>
                 passion
                 <span className="text-300"> for <br />programming techniques</span>
@@ -89,19 +114,23 @@ const Experience = () => {
                       >
                         <div className="d-flex align-items-center gap-2">
                           <img
-                            src={`/assets/experience/${tab}.svg`}
+                            src={`/assets/experience/${tab.startsWith('godaddy') ? 'godaddy' : tab}.svg`}
                             alt={tab}
                           />
                           <div className="d-flex flex-column ms-2">
                             <h5 className="mb-1">
-                              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                              {tab.startsWith('godaddy') ? 'Godaddy' : tab.charAt(0).toUpperCase() + tab.slice(1)}
                             </h5>
                             <span className="text-300">
-                              {tab === 'godaddy'
-                                ? 'Oct 2024 - Present'
-                                : tab === 'innovaccer'
-                                  ? 'Aug 2021 - Sep 2024'
-                                  : 'Jan 2021 - Aug 2021'}
+                              {tab === 'godaddy-iii'
+                                ? 'Jan 2026 - Present'
+                                : tab === 'godaddy-ii'
+                                  ? 'Oct 2024 - Dec 2025'
+                                  : tab === 'innovaccer'
+                                    ? 'Aug 2021 - Sep 2024'
+                                    : tab === 'delhivery'
+                                      ? 'Jan 2021 - Aug 2021'
+                                      : 'May 2020 - Jul 2020'}
                             </span>
                           </div>
                         </div>

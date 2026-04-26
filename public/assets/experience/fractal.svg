@@ -1,0 +1,9 @@
+<svg width="48" height="24" viewBox="0 0 48 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- "fractal" text -->
+  <text x="2" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#4A5568">fractal</text>
+  
+  <!-- Colored circles -->
+  <circle cx="36" cy="12" r="2.5" fill="#E53E3E"/> <!-- red -->
+  <circle cx="41" cy="12" r="2.5" fill="#F6AD55"/> <!-- orange/yellow -->
+  <circle cx="46" cy="12" r="2.5" fill="#2B6CB0"/> <!-- blue -->
+</svg>

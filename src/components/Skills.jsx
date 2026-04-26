@@ -1,4 +1,4 @@
-import Marquee from "react-marquee-slider";
+// Removed react-fast-marquee - using CSS marquee instead
 import { FaNodeJs, FaReact, FaVuejs, FaAngular, FaLaravel } from "react-icons/fa";
 import { SiNextdotjs, SiFirebase, SiMongodb, SiTailwindcss } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -45,38 +45,62 @@ const Skills = () => {
                 <div className="col-lg-6">
                   <div className="row">
                     <div className="col-lg-10 col-md-9 mx-auto overflow-hidden">
-                      <Marquee velocity={15} resetAfterTries={200}>
-                        {skillIcons.map((item, index) => (
-                          <div
-                            key={index}
-                            className="carouselTicker__item mt-6 text-center"
-                          >
-                            <div className="brand-logo icon_80 icon-shape rounded-3">
-                              {item.icon}
+                      <div className="css-marquee">
+                        <div className="css-marquee-content">
+                          {skillIcons.map((item, index) => (
+                            <div
+                              key={index}
+                              className="carouselTicker__item mt-6 text-center"
+                            >
+                              <div className="brand-logo icon_80 icon-shape rounded-3">
+                                {item.icon}
+                              </div>
+                              <span className="tool-tip">{item.label}</span>
                             </div>
-                            <span className="tool-tip">{item.label}</span>
-                          </div>
-                        ))}
-                      </Marquee>
+                          ))}
+                          {/* Duplicate content for seamless loop */}
+                          {skillIcons.map((item, index) => (
+                            <div
+                              key={`duplicate-${index}`}
+                              className="carouselTicker__item mt-6 text-center"
+                            >
+                              <div className="brand-logo icon_80 icon-shape rounded-3">
+                                {item.icon}
+                              </div>
+                              <span className="tool-tip">{item.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                     <div className="col-lg-8 col-md-9 mx-auto overflow-hidden">
-                      <Marquee
-                        velocity={15}
-                        resetAfterTries={200}
-                        direction="right"
-                      >
-                        {additionalIcons.map((item, index) => (
-                          <div
-                            key={index}
-                            className="carouselTicker__item mt-6 text-center"
-                          >
-                            <div className="brand-logo icon_80 icon-shape rounded-3">
-                              {item.icon}
+                      <div className="css-marquee">
+                        <div className="css-marquee-content reverse">
+                          {additionalIcons.map((item, index) => (
+                            <div
+                              key={index}
+                              className="carouselTicker__item mt-6 text-center"
+                            >
+                              <div className="brand-logo icon_80 icon-shape rounded-3">
+                                {item.icon}
+                              </div>
+                              <span className="tool-tip">{item.label}</span>
                             </div>
-                            <span className="tool-tip">{item.label}</span>
-                          </div>
-                        ))}
-                      </Marquee>
+                          ))}
+                          {/* Duplicate content for seamless loop */}
+                          {additionalIcons.map((item, index) => (
+                            <div
+                              key={`duplicate-${index}`}
+                              className="carouselTicker__item mt-6 text-center"
+                            >
+                              <div className="brand-logo icon_80 icon-shape rounded-3">
+                                {item.icon}
+                              </div>
+                              <span className="tool-tip">{item.label}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

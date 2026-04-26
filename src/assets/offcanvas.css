@@ -58,13 +58,13 @@
     line-height: 26px;
 }
 .offCanvas__social-icon a {
-    color: var(#6e4ef2);
+    color: #6e4ef2;
     display: inline-block;
     margin-right: 20px;
     text-align: center;
 }
 .offCanvas__social-icon a:hover {
-    color: var(#f1f2f3);
+    color: #f1f2f3;
 }
 .offCanvas__overly {
     position: fixed;

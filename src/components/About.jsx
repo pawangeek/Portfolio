@@ -1,5 +1,5 @@
 import '../assets/about.css';
-import Marquee from 'react-marquee-slider';
+// Removed react-fast-marquee - using CSS marquee instead
 import { motion } from 'framer-motion'; // Import Framer Motion
 import {
   SiMongodb,
@@ -13,11 +13,11 @@ import {
 
 const About = () => {
   const brandLogos = [
+    <SiPython key="python" size={60} color="#306998" />,
     <SiMongodb key="mongodb" size={60} color="#4DB33D" />,
     <SiTypescript key="typescript" size={60} color="#007ACC" />,
     <SiReact key="react" size={60} color="#61DAFB" />,
     <SiNodedotjs key="nodejs" size={60} color="#3C873A" />,
-    <SiPython key="python" size={60} color="#306998" />,
     <SiPostgresql key="postgresql" size={60} color="#336791" />,
     <SiRedis key="redis" size={60} color="#D82C20" />,
   ];
@@ -52,33 +52,41 @@ const About = () => {
                     &lt;/span&gt;
                   </div>
                   <h1 className="fs-50 my-3">
-                    Senior <span className="text-linear-4">&#123; Full Stack &#125;</span> Web
+                    Senior <span className="text-linear-4">&#123; Full Stack &#125;</span> GenAi
                     developer<span className="flicker">_</span>
                   </h1>
                   <p className="mb-6 text-secondary-2">
                     &lt;p&gt;
                     <span className="text-dark">
-                      With expertise in cutting-edge technologies such as
+                      Specializing in AI-powered solutions with expertise in
                     </span>
-                    <span className="text-secondary-2"> NodeJS</span>,{' '}
-                    <span className="text-secondary-2">React</span>,{' '}
-                    <span className="text-secondary-2">Typescript</span>,{' '}
-                    <span className="text-secondary-2">Python</span>, and{' '}
-                    <span className="text-secondary-2">FastAPI</span>
+                    <span className="text-secondary-2"> Large Language Models</span>,{' '}
+                    <span className="text-secondary-2">Vector Search</span>,{' '}
+                    <span className="text-secondary-2">Machine Learning</span>,{' '}
+                    <span className="text-secondary-2">Python SDKs</span>, and{' '}
+                    <span className="text-secondary-2">Agent Frameworks</span>
                     <span className="text-dark">
-                      ... I deliver web solutions that are both innovative and robust.
+                      ... I build enterprise-grade AI systems that transform business operations and deliver intelligent automation at scale.
                     </span>
                     &lt;/p&gt;
                   </p>
                   <div className="row">
                     <div className="col-7">
-                      <Marquee velocity={20}>
-                        {brandLogos.map((logo, index) => (
-                          <div key={index} className="mx-3">
-                            {logo}
-                          </div>
-                        ))}
-                      </Marquee>
+                      <div className="css-marquee">
+                        <div className="css-marquee-content">
+                          {brandLogos.map((logo, index) => (
+                            <div key={index} className="mx-3">
+                              {logo}
+                            </div>
+                          ))}
+                          {/* Duplicate content for seamless loop */}
+                          {brandLogos.map((logo, index) => (
+                            <div key={`duplicate-${index}`} className="mx-3">
+                              {logo}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                     <div className="col-5 d-flex align-items-end">
                       <span className="fs-6 text-300 mb-2">...and more</span>

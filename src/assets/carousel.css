@@ -11,3 +11,51 @@
 .carouselTicker__item img {
     vertical-align: top;
 }
+
+/* CSS Marquee Animation - Infinite Seamless Loop */
+.css-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+}
+
+.css-marquee-content {
+    display: inline-flex;
+    animation: scroll-left 25s linear infinite;
+    white-space: nowrap;
+}
+
+.css-marquee-content.reverse {
+    animation: scroll-right 25s linear infinite;
+}
+
+.css-marquee:hover .css-marquee-content {
+    animation-play-state: paused;
+}
+
+/* Seamless infinite scroll - starts from outside and goes to outside */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Items should not wrap */
+.css-marquee-content .carouselTicker__item,
+.css-marquee-content > div {
+    flex-shrink: 0;
+    display: inline-block;
+}
