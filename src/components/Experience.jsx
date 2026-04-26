@@ -3,8 +3,22 @@ import { motion } from 'framer-motion';
 import '../assets/experience.css';
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState('godaddy-iii'); // Default tab
+  const [activeTab, setActiveTab] = useState('godaddy-iii'); // Default tab for desktop
   const [clickedSkill, setClickedSkill] = useState(null); // Track clicked skill
+  const [openMobileTabs, setOpenMobileTabs] = useState(['godaddy-iii']); // Track open tabs on mobile
+
+  // Toggle mobile tab open/close
+  const toggleMobileTab = (tab) => {
+    setOpenMobileTabs(prev => {
+      if (prev.includes(tab)) {
+        // Remove tab if it's already open
+        return prev.filter(t => t !== tab);
+      } else {
+        // Add tab if it's not open
+        return [...prev, tab];
+      }
+    });
+  };
 
   const tabContent = {
     'godaddy-iii': {
@@ -30,31 +44,28 @@ const Experience = () => {
     innovaccer: {
       title: 'Software Engineer I',
       details: [
-        'Engineered and deployed RESTful APIs using FastAPI (Python 3) for SARA Chatbot—an LLM-powered SaaS platform—running on Kubernetes (K8s) with Helm for scalable, secure, and multi-tenant deployments.',
-        'Designed and implemented a distributed scheduler microservice using APScheduler, Celery, and Redis, reducing background task latency from 9s to 0.3s, optimizing task execution throughput under load.',
-        'Scaled chatbot infrastructure to support 15+ enterprise clients, leveraging a hybrid architecture (FastAPI + Celery + Redis) to improve message turnaround time by 34% and ensure low-latency, bidirectional communication.',
-        'Integrated polyglot data stores—MongoDB for real-time conversations, AWS S3 for dynamic KB ingestion, Redis for session management, and Snowflake for analytics—achieving 99.9% uptime and a 56% boost in response speed.',
-        'Migrated sync pipelines to fully async, adopting aiobotocore, aioredis, httpx, aiohttp, and motor, resulting in a 56% drop in CPU usage during peak workloads and improved system throughput.',
+        'Engineered RESTful APIs using FastAPI for SARA Chatbot—an LLM-powered SaaS platform—running on Kubernetes with Helm for scalable, multi-tenant deployments.',
+        'Implemented distributed scheduler microservice using APScheduler, Celery, and Redis, reducing background task latency from 9s to 0.3s.',
+        'Scaled chatbot infrastructure to support 15+ enterprise clients with hybrid architecture, improving message turnaround time by 34%.',
+        'Integrated polyglot data stores (MongoDB, AWS S3, Redis, Snowflake) achieving 99.9% uptime and 56% response speed boost.',
       ],
       skills: ['Python', 'FastAPI', 'Kubernetes', 'Helm', 'Celery', 'Redis', 'MongoDB', 'AWS S3', 'Snowflake', 'Docker'],
     },
     delhivery: {
       title: 'Data Science Intern',
       details: [
-        'Collaborated with the BI team to increase ETA coverage for packages to 98.8% (6% improvement) and implemented real-time alerting systems for major logistics hubs to detect volume spikes and operational anomalies.',
-        'Developed a comprehensive address validity scoring model using machine learning algorithms, incorporating multiple attributes and historical delivery patterns to assess address authenticity and deliverability confidence.',
-        'Built an intelligent pre-junk address predictor leveraging pattern recognition and NLP techniques, achieving 32% reduction in computational overhead and preventing invalid shipment processing.',
-        'Designed automated monitoring dashboards for logistics operations, enabling proactive identification of delivery bottlenecks and optimizing resource allocation across distribution centers.',
+        'Collaborated with BI team to increase ETA coverage to 98.8% (6% improvement) and implemented real-time alerting for major logistics hubs.',
+        'Developed address validity scoring model using ML algorithms and historical patterns for deliverability assessment.',
+        'Built pre-junk address predictor using NLP techniques, achieving 32% reduction in computational overhead.',
       ],
       skills: ['Python', 'Machine Learning', 'NLP', 'Pandas', 'NumPy', 'Jupyter', 'BI Analytics', 'Django'],
     },
     fractal: {
       title: 'Data Science Intern',
       details: [
-        'Analyzed Fractal employee project allocation data to examine errors in Full-Time Engagement allocation across departments and organizational units, identifying critical resource misallocation patterns.',
-        'Developed predictive models to optimize resource allocation efficiency, correlating billed vs unbilled days, revenue utilization metrics, and departmental capacity planning.',
-        'Visualized complex workforce analytics using advanced data visualization techniques, enabling leadership to make data-driven decisions for intelligent project staffing.',
-        'Built automated reporting dashboards that reduced manual allocation review time by 60% and improved forecasting accuracy for project resource planning.',
+        'Analyzed employee project allocation data to identify resource misallocation patterns across departments and organizational units.',
+        'Developed predictive models optimizing allocation efficiency, correlating billed vs unbilled days and revenue utilization metrics.',
+        'Built automated dashboards reducing manual review time by 60% and improving forecasting accuracy for resource planning.',
       ],
       skills: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter', 'Data Visualization', 'Predictive Analytics'],
     },
@@ -97,50 +108,49 @@ const Experience = () => {
                 <span className="text-300"> for <br />programming techniques</span>
               </h3>
               <div className="row mt-5">
-                {/* Tabs */}
-                <div className="col-lg-4">
-                  <div className="d-flex flex-column" style={{gap: window.innerWidth <= 468 ? '12px' : '2rem',}}>
-                    {Object.keys(tabContent).map((tab) => (
-                      <a
-                        key={tab}
-                        href="#"
-                        className={`technology border border-1 rounded-3 p-3 ${
-                          activeTab === tab ? 'active' : ''
-                        }`}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActiveTab(tab);
-                        }}
-                      >
-                        <div className="d-flex align-items-center gap-2">
-                          <img
-                            src={`/assets/experience/${tab.startsWith('godaddy') ? 'godaddy' : tab}.svg`}
-                            alt={tab}
-                          />
-                          <div className="d-flex flex-column ms-2">
-                            <h5 className="mb-1">
-                              {tab.startsWith('godaddy') ? 'Godaddy' : tab.charAt(0).toUpperCase() + tab.slice(1)}
-                            </h5>
-                            <span className="text-300">
-                              {tab === 'godaddy-iii'
-                                ? 'Jan 2026 - Present'
-                                : tab === 'godaddy-ii'
-                                  ? 'Oct 2024 - Dec 2025'
-                                  : tab === 'innovaccer'
-                                    ? 'Aug 2021 - Sep 2024'
-                                    : tab === 'delhivery'
-                                      ? 'Jan 2021 - Aug 2021'
-                                      : 'May 2020 - Jul 2020'}
-                            </span>
+                {/* Desktop Layout */}
+                <div className="d-none d-lg-flex">
+                  <div className="col-lg-4">
+                    <div className="d-flex flex-column" style={{gap: '2rem'}}>
+                      {Object.keys(tabContent).map((tab) => (
+                        <a
+                          key={tab}
+                          href="#"
+                          className={`technology border border-1 rounded-3 p-3 ${
+                            activeTab === tab ? 'active' : ''
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setActiveTab(tab);
+                          }}
+                        >
+                          <div className="d-flex align-items-center gap-2">
+                            <img
+                              src={`/assets/experience/${tab.startsWith('godaddy') ? 'godaddy' : tab}.svg`}
+                              alt={tab}
+                            />
+                            <div className="d-flex flex-column ms-2">
+                              <h5 className="mb-1">
+                                {tab.startsWith('godaddy') ? 'Godaddy' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                              </h5>
+                              <span className="text-300">
+                                {tab === 'godaddy-iii'
+                                  ? 'Jan 2026 - Present'
+                                  : tab === 'godaddy-ii'
+                                    ? 'Oct 2024 - Dec 2025'
+                                    : tab === 'innovaccer'
+                                      ? 'Aug 2021 - Sep 2024'
+                                      : tab === 'delhivery'
+                                        ? 'Jan 2021 - Aug 2021'
+                                        : 'May 2020 - Jul 2020'}
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                      </a>
-                    ))}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                {/* Tab Content */}
-                <div className="col-lg-8 ps-lg-5 mt-3">
+                  <div className="col-lg-8 ps-lg-5 mt-3">
                   <motion.div
                     key={ activeTab }
                     initial="hidden"
@@ -177,6 +187,93 @@ const Experience = () => {
                       )) }
                     </div>
                   </motion.div>
+                  </div>
+                </div>
+
+                {/* Mobile Layout */}
+                <div className="d-lg-none">
+                  <div className="row">
+                    {Object.keys(tabContent).map((tab) => (
+                      <div key={tab} className="col-12 mb-4">
+                        {/* Mobile Tab Header */}
+                        <a
+                          href="#"
+                          className={`technology border border-1 rounded-3 p-3 d-block ${
+                            openMobileTabs.includes(tab) ? 'active' : ''
+                          }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            toggleMobileTab(tab);
+                          }}
+                        >
+                          <div className="d-flex align-items-center gap-2">
+                            <img
+                              src={`/assets/experience/${tab.startsWith('godaddy') ? 'godaddy' : tab}.svg`}
+                              alt={tab}
+                            />
+                            <div className="d-flex flex-column ms-2">
+                              <h5 className="mb-1">
+                                {tab.startsWith('godaddy') ? 'Godaddy' : tab.charAt(0).toUpperCase() + tab.slice(1)}
+                              </h5>
+                              <span className="text-300">
+                                {tab === 'godaddy-iii'
+                                  ? 'Jan 2026 - Present'
+                                  : tab === 'godaddy-ii'
+                                    ? 'Oct 2024 - Dec 2025'
+                                    : tab === 'innovaccer'
+                                      ? 'Aug 2021 - Sep 2024'
+                                      : tab === 'delhivery'
+                                        ? 'Jan 2021 - Aug 2021'
+                                        : 'May 2020 - Jul 2020'}
+                              </span>
+                            </div>
+                          </div>
+                        </a>
+
+                        {/* Mobile Tab Content - Shows for open tabs */}
+                        {openMobileTabs.includes(tab) && (
+                          <div className="mt-3 ps-3">
+                            <motion.div
+                              key={tab}
+                              initial="hidden"
+                              animate="visible"
+                              exit="hidden"
+                              variants={variants}
+                              transition={{duration: 0.5, type: 'spring', bounce: 0.3}}
+                            >
+                              <h6 className="text-linear-4">{tabContent[tab].title}</h6>
+                              <ul className="mt-4">
+                                {tabContent[tab].details.map((detail, index) => (
+                                  <li key={index} className="mb-3">
+                                    {detail}
+                                  </li>
+                                ))}
+                              </ul>
+                              <div className="d-flex flex-wrap gap-2 mt-4">
+                                {tabContent[tab].skills.map((skill, index) => (
+                                  <motion.a
+                                    key={index}
+                                    href="#"
+                                    className="text-300 border border-1 px-3 py-1"
+                                    initial="rest"
+                                    animate={clickedSkill === skill ? 'clicked' : 'rest'}
+                                    variants={skillVariants}
+                                    transition={{duration: 0.2}}
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      setClickedSkill(skill);
+                                    }}
+                                  >
+                                    {skill}
+                                  </motion.a>
+                                ))}
+                              </div>
+                            </motion.div>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

@@ -37,7 +37,7 @@ const About = () => {
                   transition={{ duration: 0.5 }}
                   className="position-relative mb-lg-0 mb-5 pe-5 ps-5"
                 >
-                  <img src="/assets/imgs/people.png" alt="pawan" className="styled-image" />
+                  <img src="/assets/imgs/peepal.jpg" alt="pawan" className="styled-image" />
                 </motion.div>
               </div>
               <div className="col-lg-6 mx-lg-auto col-md-12">
@@ -52,7 +52,7 @@ const About = () => {
                     &lt;/span&gt;
                   </div>
                   <h1 className="fs-50 my-3">
-                    Senior <span className="text-linear-4">&#123; Full Stack &#125;</span> GenAi
+                    Senior <span className="text-linear-4">&#123; Full Stack &#125;</span> GenAI
                     developer<span className="flicker">_</span>
                   </h1>
                   <p className="mb-6 text-secondary-2">
